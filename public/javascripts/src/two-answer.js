@@ -1,7 +1,7 @@
 var maru = 0;
 var batsu = 0;
 
-var s = io.connect('http://192.168.100.23:2000'); 
+//var s = io.connect('http://192.168.100.23:2000'); 
 
 //サーバから受け取るイベント
 s.on("connect", function () {});  // 接続時

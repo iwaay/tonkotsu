@@ -123,27 +123,12 @@
 
         </div>
         <!-- /#wrapper -->
-
-        <!-- Menu Toggle Script -->
-        <script>
-            var s = io.connect('http://192.168.100.23:2000'); 
-
-            //サーバから受け取るイベント
-            s.on("connect", function () {});  // 接続時
-            s.on("disconnect", function (client) {});  // 切断時
-
-            //クライアントからイベント送信（イベント名は自由に設定できます）
-            function test() {
-                var msg = "test"; //取得
-                s.emit("maru_batsu", {value:msg}); //サーバへ送信
-            }          
-        </script>
-
-        <!-- jQuery Version 1.11.0 -->
-        <script type="text/javascript" src="/javascripts/jquery-1.11.0.js"></script>
+                <!-- jQuery Version 1.11.0 -->
+        <script type="text/javascript" src="/javascripts/lib/jquery-1.11.0.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"></script>
+        <script src="/javascripts/src/question.js"></script>
 
 
     </body>
