@@ -3,6 +3,8 @@ var batsu = 0;
 
 var s = io.connect('http://192.168.100.23:2000'); 
 
+render();
+
 //サーバから受け取るイベント
 s.on("connect", function () {});  // 接続時
 s.on("disconnect", function (client) {});  // 切断時
@@ -43,7 +45,8 @@ function setdata(){
             "rgba(0,188,180,1)",
             ],
             strokeColor : "rgba(151,187,205,0.8)",
-            data : [maru, batsu]
+           // data : [maru, batsu]
+            data : [100, 50]
         }      
         ]  
     }
