@@ -1,7 +1,7 @@
 var maru = 0;
 var batsu = 0;
 
-var s = io.connect('http://192.168.100.23:2000'); 
+var s = io.connect('http://localhost:2000'); 
 
 render();
 
@@ -45,8 +45,8 @@ function setdata(){
             "rgba(0,188,180,1)",
             ],
             strokeColor : "rgba(151,187,205,0.8)",
-           // data : [maru, batsu]
-            data : [100, 50]
+           data : [maru, batsu]
+           // data : [100, 50]
         }      
         ]  
     }

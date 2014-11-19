@@ -4,7 +4,7 @@ render();
 
 function setdata(){
     barChartData = {
-        labels : ["1", "2", "3", "4"],
+        labels : ["A", "B", "C", "D"],
         datasets : [
         {
             fillColor : [
@@ -14,7 +14,6 @@ function setdata(){
             "rgba(0,188,180,1)"
                 ],
             strokeColor : "rgba(151,187,205,0.8)",
-            // data : [maru, batsu]
             data : [100, 50, 60, 40]
         }      
         ]  
