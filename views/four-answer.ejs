@@ -82,50 +82,14 @@
 
         </div>
         <!-- /.container -->
-        <script>
-
-            var pieData = [
-            {
-                value: 300,
-                color:"#ff5722",
-                highlight: "#FF5A5E",
-                label: "A"
-            },
-            {
-                value: 50,
-                color: "#00bcb4",
-                highlight: "#5AD3D1",
-                label: "B"
-            },
-            {
-                value: 100,
-                color: "#ff5722",
-                highlight: "#FFC870",
-                label: "C"
-            },
-            {
-                value: 40,
-                color: "#00bcb4",
-                highlight: "#A8B3C5",
-                label: "D"
-            }
-            ];
-
-            window.onload = function(){
-                var ctx = document.getElementById("chart-area").getContext("2d");
-                window.myPie = new Chart(ctx).Pie(pieData);
-            };
-
-
-
-        </script>
-
+  
         <!-- jQuery Version 1.11.0 -->
-        <script src="javascript/jquery-1.11.0.js"></script>
+        <script src="javascripts/lib/jquery-1.11.0.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="javascript/bootstrap.min.js"></script>
-
+        <script src="javascripts/lib/bootstrap.min.js"></script>
+        
+        <script src="javascripts/src/four-answer.js"></script>
     </body>
 
 </html>
