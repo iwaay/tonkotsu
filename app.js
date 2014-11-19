@@ -15,6 +15,11 @@ var answert = require('./routes/text-answer');
 
 var maru_count = 0;
 var batsu_count = 0;
+var one_count = 0;
+var two_count = 0;
+var three_count = 0;
+var four_count = 0;
+var textArray = new Array();
 
 var app = express();
 
@@ -76,7 +81,7 @@ var socketio = require('socket.io');
 var io = socketio.listen(server);
 
 io.sockets.on("connection", function(socket){
-
+    console.log("Connected!");
     // メッセージ送信（送信者にも送られる）
     socket.on("maru:send", function (data) {
         maru_count++;
@@ -88,17 +93,39 @@ io.sockets.on("connection", function(socket){
         io.sockets.emit("batsu:send", {value:batsu_count});
     });
 
-    socket.on("maru_batsu", function (data) {
-        io.sockets.emit("maru_batsu", {value:data});
-        console.log(data);
+    socket.on("one:send", function (data) {
+        one_count++;
+        io.sockets.emit("one:send", {value: one_count});
     });
 
+    socket.on("two:send", function (data) {
+        two_count++;
+        io.sockets.emit("two:send", {value: two_count});
+    });
 
+    socket.on("three:send", function (data) {
+        three_count++;
+        io.sockets.emit("three:send", {value: three_count});
+    });
 
-    // 切断したときに送信
-    socket.on("disconnect", function(){
-        // io.sockets.emit("S_to_C_message", {value:"user disconnected"});
+    socket.on("four:send", function (data) {
+        four_count++;
+        io.sockets.emit("four:send", {value: four_count});
+    });
+
+    socket.on("text:send", function (data) {
+        textArary.push(data);
+        io.sockets.emit("text:send", {value: textArray});
     });
 });
+
+
+/*
+// 切断したときに送信
+socket.on("disconnect", function(){
+// io.sockets.emit("S_to_C_message", {value:"user disconnected"});
+});
+*/
+//});
 
 module.exports = app;
