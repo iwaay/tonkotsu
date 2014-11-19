@@ -9,7 +9,9 @@ var http = require('http');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var question = require('./routes/question');
-var result = require('./routes/result');
+var answer2 = require('./routes/two-answer');
+var answer4 = require('./routes/four-answer');
+var answert = require('./routes/text-answer');
 
 var maru_count = 0;
 var batsu_count = 0;
@@ -31,7 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/question', question);
-app.use('/result', result);
+app.use('/two-answer', answer2);
+app.use('/four-answer', answer4);
+app.use('/text-answer', answert);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
