@@ -12,9 +12,11 @@ var texts = [
     "私の名前は塚本だ。どわっはっはっはっはっはっはっはっはっは。",
     "私の名前は塚本だ。どわっはっはっはっはっはっはっはっはっは。"
 ];
-*/
+texts.forEach(function(text,i) {
+    addText(text, i);
+});
 
-var texts = [];
+*/
 
 var i = 0;
 
@@ -28,6 +30,7 @@ s.on("text:send", function(data) {
     addText(data.value,i); 
     i++;
 });
+
 
 function addText(text, i) {
     console.log(i);
