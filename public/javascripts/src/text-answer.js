@@ -20,14 +20,17 @@ var i = 0;
 
 var s = io.connect('http://localhost:2000');
 
+s.emit("answer-type", {value:"text"}); 
+
 s.on("connect", function() {});
 s.on("disconnect", function() {});
 s.on("text:send", function(data) {
-    addText(text,i); 
+    addText(data.value,i); 
     i++;
 });
 
 function addText(text, i) {
+    console.log(i);
     if ( i%4 == 0) {
         $divRow       = $("<div>").addClass("row");
         $divPortfolio = $("<div>").addClass("col-md-3").addClass("portfolio-item");

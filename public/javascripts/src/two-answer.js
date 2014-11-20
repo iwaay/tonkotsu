@@ -1,37 +1,34 @@
-var maru = 0;
-var batsu = 0;
-var ctx = document.getElementById("canvas").getContext("2d");
-var barChartData;
+    var ctx = document.getElementById("canvas").getContext("2d");
+    var barChartData = {
+        labels : ["○","×"],
+        datasets : [
+        {
+            fillColor : [
+                "rgba(255,87,34,1)",
+                "rgba(0,188,180,1)",
+            ],
+            strokeColor : "rgba(151,187,205,0.8)",
+            data : [0, 0]
+        }      
+        ]  
+    }
+>>>>>>> 5ba6a96ba7887eaf412050b5067add3eead1cd55
 
-
-
-
-setdata();
-
-var myBarChart = new Chart(ctx).Bar(barChartData, {
+    var myBarChart = new Chart(ctx).Bar(barChartData, {
         responsive : true
     });
 
-var s = io.connect('http://localhost:2000'); 
+    var s = io.connect('http://localhost:2000'); 
 
-//render();
+    s.on("connect", function (){});
+    s.on("disconnect");
+    s.on("maru:send", function (data) {
+        update('maru');
+    });
 
-//サーバから受け取るイベント
-s.on("connect", function () {});  // 接続時
-s.on("disconnect", function (client) {});  // 切断時
-s.on("maru:send", function (data) {
-    maru = data.value;
-    console.log(maru);
-    setdata();
-    window.myBarChart.update();
-});
-s.on("batsu:send", function (data) {
-    batsu = data.value;
-    console.log(batsu);
-    render();
-});
-
-
+    s.on("batsu:send", function (data) {
+        update('batsu');
+    });
 
 //クライアントからイベント送信（イベント名は自由に設定できます）
 function send2choice_maru() {
@@ -44,31 +41,12 @@ function send2choice_batsu() {
     s.emit("batsu:send", {value:msg}); //サーバへ送信
 }
 
-
-function setdata(){
-    barChartData = {
-        labels : ["○","×"],
-        datasets : [
-        {
-            fillColor : [
-                "rgba(255,87,34,1)",
-            "rgba(0,188,180,1)",
-            ],
-            strokeColor : "rgba(151,187,205,0.8)",
-           data : [maru, batsu]
-        }      
-        ]  
-    }
-} 
-
-function render(){
-    setdata();
-    var ctx = document.getElementById("canvas").getContext("2d");
-    window.myBar = new Chart(ctx).Bar(barChartData, {
-        responsive : true
-    });
+function update(type) {
+    if ( type === 'maru') {
+        myBarChart.datasets[0].bars[0].value++;
+    } else {
+        myBarChart.datasets[0].bars[1].value++;
+    } 
+    myBarChart.update();
 }
-
-
-
 

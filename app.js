@@ -116,12 +116,17 @@ io.sockets.on("connection", function(socket){
 
     socket.on("text:send", function (data) {
         //textArary.push(data);
-        io.sockets.emit("text:send", {value: data});
+        io.sockets.emit("text:send", data);
     });
 
     socket.on("question:send", function (data) {
         questionArray.push(data);
         io.sockets.emit("question:send", {value: questionArray});
+    });
+
+    socket.on("answer-type", function(data){
+        var type = data.value;
+        io.sockets.emit("answer-type", {value: type});
     });
 });
 
