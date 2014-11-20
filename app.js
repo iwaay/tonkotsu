@@ -15,10 +15,10 @@ var answert = require('./routes/text-answer');
 
 var maru_count = 0;
 var batsu_count = 0;
-var one_count = 0;
-var two_count = 0;
-var three_count = 0;
-var four_count = 0;
+var a_count = 0;
+var b_count = 0;
+var c_count = 0;
+var d_count = 0;
 var textArray = new Array();
 
 var app = express();
@@ -93,24 +93,24 @@ io.sockets.on("connection", function(socket){
         io.sockets.emit("batsu:send", {value:batsu_count});
     });
 
-    socket.on("one:send", function (data) {
-        one_count++;
-        io.sockets.emit("one:send", {value: one_count});
+    socket.on("a:send", function (data) {
+        a_count++;
+        io.sockets.emit("a:send", {value: a_count});
     });
 
-    socket.on("two:send", function (data) {
-        two_count++;
-        io.sockets.emit("two:send", {value: two_count});
+    socket.on("b:send", function (data) {
+        b_count++;
+        io.sockets.emit("b:send", {value: b_count});
     });
 
-    socket.on("three:send", function (data) {
-        three_count++;
-        io.sockets.emit("three:send", {value: three_count});
+    socket.on("c:send", function (data) {
+        c_count++;
+        io.sockets.emit("c:send", {value: c_count});
     });
 
-    socket.on("four:send", function (data) {
-        four_count++;
-        io.sockets.emit("four:send", {value: four_count});
+    socket.on("d:send", function (data) {
+        d_count++;
+        io.sockets.emit("d:send", {value: d_count});
     });
 
     socket.on("text:send", function (data) {

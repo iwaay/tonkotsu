@@ -28,7 +28,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+        <script src="http://localhost:2000/socket.io/socket.io.js"></script>
         <script src="/javascripts/lib/Chart.js"></script>
 
     </head>
@@ -65,6 +65,17 @@
         </nav>
 
         <!-- Page Content -->
+        <div id="msg_list">
+            <form action="" method="post" onsubmit="return false;">
+                <input id="a" type="submit" class="button" style="padding:10px" onclick="send2choice_a();" value="a" />
+                <input id="b" type="submit" class="button" style="padding:10px" onclick="send2choice_b();" value="b" />
+                <input id="c" type="submit" class="button" style="padding:10px" onclick="send2choice_c();" value="c" />
+                <input id="d" type="submit" class="button" style="padding:10px" onclick="send2choice_d();" value="d" />
+           </form>
+        </div>
+
+
+
         <div class="container" style="width: 60%">
             <div class="text-center">
                 <h1>result</h1>
@@ -76,13 +87,13 @@
 
         </div>
         <!-- /.container -->
-  
+
         <!-- jQuery Version 1.11.0 -->
         <script src="javascripts/lib/jquery-1.11.0.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
         <script src="javascripts/lib/bootstrap.min.js"></script>
-        
+
         <script src="javascripts/src/four-answer.js"></script>
     </body>
 
