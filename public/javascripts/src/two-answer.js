@@ -1,7 +1,17 @@
 var maru = 0;
 var batsu = 0;
+var ctx = document.getElementById("canvas").getContext("2d");
+var varChartData;
 
-//var s = io.connect('http://192.168.100.23:2000'); 
+setdata();
+
+var myBarChart = new Chart(ctx).Bar(barChartData, {
+        responsive : true
+    });
+
+var s = io.connect('http://localhost:2000'); 
+
+//render();
 
 //サーバから受け取るイベント
 s.on("connect", function () {});  // 接続時
@@ -9,7 +19,8 @@ s.on("disconnect", function (client) {});  // 切断時
 s.on("maru:send", function (data) {
     maru = data.value;
     console.log(maru);
-    render();
+    setdata();
+    window.myBarChart.update();
 });
 s.on("batsu:send", function (data) {
     batsu = data.value;
@@ -31,8 +42,6 @@ function send2choice_batsu() {
 }
 
 
-var barChartData;
-
 function setdata(){
     barChartData = {
         labels : ["○","×"],
@@ -43,7 +52,7 @@ function setdata(){
             "rgba(0,188,180,1)",
             ],
             strokeColor : "rgba(151,187,205,0.8)",
-            data : [maru, batsu]
+           data : [maru, batsu]
         }      
         ]  
     }

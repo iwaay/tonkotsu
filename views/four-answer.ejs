@@ -28,8 +28,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
-        <script src="Chart.js"></script>
+        <script src="http://localhost:2000/socket.io/socket.io.js"></script>
+        <script src="/javascripts/lib/Chart.js"></script>
 
     </head>
 
@@ -52,16 +52,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                    <a href="question.html">Question</a>
+                    <a href="/question">Question</a>
                     </li>
                     <li>
-                    <a href="result.html">Result</a>
-                    </li>
-                    <li>
-                    <a href="result2.html">Result2</a>
-                    </li>
-                     <li>
-                    <a href="result3.html">Result3</a>
+                    <a href="#">Result</a>
                     </li>
                 </ul>
             </div>
@@ -71,24 +65,35 @@
         </nav>
 
         <!-- Page Content -->
-        <div class="container">
+        <div id="msg_list">
+            <form action="" method="post" onsubmit="return false;">
+                <input id="a" type="submit" class="button" style="padding:10px" onclick="send2choice_a();" value="a" />
+                <input id="b" type="submit" class="button" style="padding:10px" onclick="send2choice_b();" value="b" />
+                <input id="c" type="submit" class="button" style="padding:10px" onclick="send2choice_c();" value="c" />
+                <input id="d" type="submit" class="button" style="padding:10px" onclick="send2choice_d();" value="d" />
+           </form>
+        </div>
+
+
+
+        <div class="container" style="width: 60%">
             <div class="text-center">
                 <h1>result</h1>
                 <div id="canvas-holder">
-                    <canvas id="chart-area" width="300" height="300"/>
+                    <canvas id="canvas" height="301" width="402" style="width: 402px; height: 301px;"></canvas>
                 </div>
             </div>
             <!-- /.row -->
 
         </div>
         <!-- /.container -->
-  
+
         <!-- jQuery Version 1.11.0 -->
         <script src="javascripts/lib/jquery-1.11.0.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
         <script src="javascripts/lib/bootstrap.min.js"></script>
-        
+
         <script src="javascripts/src/four-answer.js"></script>
     </body>
 
