@@ -12,6 +12,7 @@
         }      
         ]  
     }
+>>>>>>> 5ba6a96ba7887eaf412050b5067add3eead1cd55
 
     var myBarChart = new Chart(ctx).Bar(barChartData, {
         responsive : true

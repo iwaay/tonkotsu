@@ -76,27 +76,8 @@
                         Question for Teacher
                     </a>
                     </li>
-                    <li>
-                    <a href="#">分かりませーん！</a>
-                    </li>
-                    <li>
-                    <a href="#">わからーん！</a>
-                    </li>
-                    <li>
-                    <a href="#">ここが難しいです！</a>
-                    </li>
-                    <li>
-                    <a href="#">わからんわからん！</a>
-                    </li>
-                    <li>
-                    <a href="#">ああああああああああああああああ</a>
-                    </li>
-                    <li>
-                    <a href="#">いいいいいいいいいいいいいいいいい</a>
-                    </li>
-                    <li>
-                    <a href="#">うううううううううううううううううう　</a>
-                    </li>
+                    <div id="question_text">
+                    </div>
                 </ul>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -104,6 +85,7 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">question</a>
+ <a href="#" class = "btn btn-primary btn-lg" onclick="send2question();">aaa</a>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 text-center">
@@ -123,13 +105,20 @@
 
         </div>
         <!-- /#wrapper -->
-                <!-- jQuery Version 1.11.0 -->
+        <!-- jQuery Version 1.11.0 -->
         <script type="text/javascript" src="/javascripts/lib/jquery-1.11.0.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
         <script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"></script>
         <script src="/javascripts/src/question.js"></script>
 
+        <!-- Menu Toggle Script -->
+        <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
 
     </body>
 
