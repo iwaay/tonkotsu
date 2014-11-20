@@ -1,7 +1,23 @@
-var a;
-var b;
-var c;
-var d;
+var ctx = document.getElementById("canvas").getContext("2d");
+barChartData = {
+        labels : ["A", "B", "C", "D"],
+        datasets : [
+        {
+            fillColor : [
+            "rgba(255,87,34,1)",
+            "rgba(0,188,180,1)",
+            "rgba(255,87,34,1)",
+            "rgba(0,188,180,1)"
+                ],
+            strokeColor : "rgba(151,187,205,0.8)",
+            data : [0, 0, 0, 0]
+        }      
+        ]  
+    };
+
+var myBarChart = new Chart(ctx).Bar(barChartData, {
+    responsive: true
+});
 
 var s = io.connect('http://localhost:2000'); 
 
@@ -10,28 +26,17 @@ s.on("connect", function () {});  // 接続時
 s.on("disconnect", function (client) {});  // 切断時
 
 s.on("a:send", function (data) {
-    a = data.value;
-    console.log(a);
-    render();
+    update('a');
 });
 s.on("b:send", function (data) {
-    b = data.value;
-    console.log(b);
-    render();
+    update('b');
 });
 s.on("c:send", function (data) {
-    c = data.value;
-    console.log(c);
-    render();
+    update('c');
 });
 s.on("d:send", function (data) {
-    d = data.value;
-    console.log(d);
-    render();
+    update('d');
 });
-
-
-
 
 //クライアントからイベント送信（イベント名は自由に設定できます）
 function send2choice_a() {
@@ -54,32 +59,16 @@ function send2choice_d() {
     s.emit("d:send", {value:msg}); //サーバへ送信
 }
 
-var barChartData;
-
-render();
-
-function setdata(){
-    barChartData = {
-        labels : ["A", "B", "C", "D"],
-        datasets : [
-        {
-            fillColor : [
-            "rgba(255,87,34,1)",
-            "rgba(0,188,180,1)",
-            "rgba(255,87,34,1)",
-            "rgba(0,188,180,1)"
-                ],
-            strokeColor : "rgba(151,187,205,0.8)",
-            data : [a, b, c, d]
-        }      
-        ]  
-    }
-} 
-
-function render(){
-    setdata();
-    var ctx = document.getElementById("canvas").getContext("2d");
-    window.myBar = new Chart(ctx).Bar(barChartData, {
-        responsive : true
-    });
+function update(type) {
+    if ( type === 'a') {
+        myBarChart.datasets[0].bars[0].value++;
+    } else if (type == 'b'){
+        myBarChart.datasets[0].bars[1].value++;
+    } else if (type == 'c'){
+        myBarChart.datasets[0].bars[2].value++;
+    } else {
+        myBarChart.datasets[0].bars[3].value++;
+    } 
+    myBarChart.update();
 }
+
