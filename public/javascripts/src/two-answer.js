@@ -1,5 +1,3 @@
-var maru = 0;
-    var batsu = 0;
     var ctx = document.getElementById("canvas").getContext("2d");
     var barChartData = {
         labels : ["○","×"],
@@ -43,7 +41,6 @@ function send2choice_batsu() {
 }
 
 function update(type) {
-    console.log(myBarChart.datasets[0]);
     if ( type === 'maru') {
         myBarChart.datasets[0].bars[0].value++;
     } else {
