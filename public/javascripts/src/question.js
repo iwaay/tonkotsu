@@ -14,22 +14,23 @@ function maru_batsu() {
     s.emit("maru_batsu", {value:msg}); //サーバへ送信
 }          
 
+$question_text = $("#question_text");
 s.on("question:send", function (data) {
-    console.log(data.value);
-    display(data.value);
+    $question_text.append($("<li>").append(data));
 });
-
-function display(questionArray){
-questionArray.forEach(function(text, i){
-    console.log(text);
-    $("div#question_text").append("<li><p>"+text+"</p></li>");
-});
-}
 
 //クライアントから送信(テスト用)
 function send2question() {
-    var msg = "aaa" //取得
-    s.emit("question:send", {value:msg}); //サーバへ送信
+    s.emit("question:send", "hogehogehoge"); //サーバへ送信
 }          
 
-
+var isOpen = false;
+$toggle = $("#menu-toggle");
+function toggle() {
+    isOpen = !isOpen;
+    if (isOpen) {
+        $toggle.html("Open");
+    } else {
+        $toggle.html("Close");
+    }
+}
