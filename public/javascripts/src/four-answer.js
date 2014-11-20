@@ -21,6 +21,8 @@ var myBarChart = new Chart(ctx).Bar(barChartData, {
 
 var s = io.connect('http://localhost:2000'); 
 
+s.emit("answer-type", {value:"abcd"}); 
+
 //サーバから受け取るイベント
 s.on("connect", function () {});  // 接続時
 s.on("disconnect", function (client) {});  // 切断時

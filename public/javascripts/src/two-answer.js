@@ -1,4 +1,4 @@
-    var ctx = document.getElementById("canvas").getContext("2d");
+var ctx = document.getElementById("canvas").getContext("2d");
     var barChartData = {
         labels : ["○","×"],
         datasets : [
@@ -12,13 +12,14 @@
         }      
         ]  
     }
->>>>>>> 5ba6a96ba7887eaf412050b5067add3eead1cd55
 
     var myBarChart = new Chart(ctx).Bar(barChartData, {
         responsive : true
     });
 
     var s = io.connect('http://localhost:2000'); 
+
+    s.emit("answer-type", {value:"maru_batsu"}); 
 
     s.on("connect", function (){});
     s.on("disconnect");

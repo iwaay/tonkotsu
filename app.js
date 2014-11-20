@@ -120,8 +120,8 @@ io.sockets.on("connection", function(socket){
     });
 
     socket.on("question:send", function (data) {
-        questionArray.push(data);
-        io.sockets.emit("question:send", {value: questionArray});
+        questionArray.push(data.value);
+        io.sockets.emit("question:send", data.value);
     });
 
     socket.on("answer-type", function(data){
