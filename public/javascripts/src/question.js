@@ -16,7 +16,7 @@ function maru_batsu() {
 
 $question_text = $("#question_text");
 s.on("question:send", function (data) {
-    $question_text.append($("<li>").append(data));
+    $question_text.append($("<li>").append(data.value));
 });
 
 /*クライアントから送信(テスト用)

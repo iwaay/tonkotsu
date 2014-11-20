@@ -121,7 +121,7 @@ io.sockets.on("connection", function(socket){
 
     socket.on("question:send", function (data) {
         questionArray.push(data.value);
-        io.sockets.emit("question:send", data.value);
+        io.sockets.emit("question:send", data);
     });
 
     socket.on("answer-type", function(data){
