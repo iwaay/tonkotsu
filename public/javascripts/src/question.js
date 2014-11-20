@@ -19,10 +19,11 @@ s.on("question:send", function (data) {
     $question_text.append($("<li>").append(data));
 });
 
-//クライアントから送信(テスト用)
-function send2question() {
-    s.emit("question:send", "hogehogehoge"); //サーバへ送信
-}          
+/*クライアントから送信(テスト用)
+function test() {
+    s.emit("question:send", {value: "hogehogehoge"}); //サーバへ送信
+} 
+*/
 
 var isOpen = false;
 $toggle = $("#menu-toggle");
