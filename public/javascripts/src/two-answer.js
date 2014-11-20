@@ -1,7 +1,10 @@
 var maru = 0;
 var batsu = 0;
 var ctx = document.getElementById("canvas").getContext("2d");
-var varChartData;
+var barChartData;
+
+
+
 
 setdata();
 

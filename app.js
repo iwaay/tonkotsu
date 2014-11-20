@@ -20,6 +20,7 @@ var b_count = 0;
 var c_count = 0;
 var d_count = 0;
 var textArray = new Array();
+var questionArray = new Array();
 
 var app = express();
 
@@ -116,6 +117,11 @@ io.sockets.on("connection", function(socket){
     socket.on("text:send", function (data) {
         textArary.push(data);
         io.sockets.emit("text:send", {value: textArray});
+    });
+
+    socket.on("question:send", function (data) {
+        questionArray.push(data);
+        io.sockets.emit("question:send", {value: questionArray});
     });
 });
 
