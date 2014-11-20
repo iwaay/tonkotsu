@@ -1,3 +1,4 @@
+/*
 var texts = [
     "私の名前は塚本だ。どわっはっはっはっはっはっはっはっはっは。",
     "私の名前は塚本だ。どわっはっはっはっはっはっはっはっはっは。",
@@ -11,9 +12,19 @@ var texts = [
     "私の名前は塚本だ。どわっはっはっはっはっはっはっはっはっは。",
     "私の名前は塚本だ。どわっはっはっはっはっはっはっはっはっは。"
 ];
+*/
 
-texts.forEach(function(text,i) {
+var texts = [];
+
+var i = 0;
+
+var s = io.connect('http://localhost:2000');
+
+s.on("connect", function() {});
+s.on("disconnect", function() {});
+s.on("text:send", function(data) {
     addText(text,i); 
+    i++;
 });
 
 function addText(text, i) {

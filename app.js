@@ -114,8 +114,8 @@ io.sockets.on("connection", function(socket){
     });
 
     socket.on("text:send", function (data) {
-        textArary.push(data);
-        io.sockets.emit("text:send", {value: textArray});
+        //textArary.push(data);
+        io.sockets.emit("text:send", {value: data});
     });
 });
 
