@@ -12,9 +12,6 @@ function maru_batsu() {
 }          
 */
 
-for(var j = 0; j < getQuestionLength(); j++){
-    $question_text.append($("<li>").append(getQuestions(i)));
-}
 
 function getQuestionLength(){
     var i=0; 
@@ -23,6 +20,10 @@ function getQuestionLength(){
 function getQuestions(i){return localStorage.getItem("question"+i); }
 
 $question_text = $("#question_text");
+
+for(var j = 0; j < getQuestionLength(); j++){
+    $question_text.append($("<li>").append(getQuestions(i)));
+}
 
 s.on("question:send", function (data) {
     i = getQuestionLength();
