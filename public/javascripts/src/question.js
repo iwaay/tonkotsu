@@ -12,7 +12,6 @@ function maru_batsu() {
 }          
 */
 
-
 function getQuestionLength(){
     var i=0; 
     while(getQuestions(i)!==null){++i;} return i;}
@@ -37,13 +36,8 @@ function test() {
 } 
 */
 
-//ブラウザが閉じられるときに呼び出される関数を登録
-window.onbeforeunload = function () {
-    browserClose();
-};
-
-//ブラウザが閉じられる時
-function browserClose()
+//ローカルストレージをからっぽくするの。
+function resetLocalStorage()
 {
     localStorage.clear();//バルス
 }
