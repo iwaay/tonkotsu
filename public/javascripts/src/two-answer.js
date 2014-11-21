@@ -52,3 +52,20 @@ function update(type) {
     myBarChart.update();
 }
 
+function getQuestionLength(){
+    var i=0; 
+    while(getQuestions(i)!==null){++i;} return i;}
+
+function getQuestions(i){return localStorage.getItem("question"+i); }
+
+
+for(var j = 0; j < getQuestionLength(); j++){
+    $question_text.append($("<li>").append(getQuestions(j)));
+}
+
+s.on("question:send", function (data) {
+    i = getQuestionLength();
+    localStorage.setItem("question"+i,data.value);
+});
+
+
