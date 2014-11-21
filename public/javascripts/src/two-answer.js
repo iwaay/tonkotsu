@@ -14,7 +14,8 @@ var ctx = document.getElementById("canvas").getContext("2d");
     }
 
     var myBarChart = new Chart(ctx).Bar(barChartData, {
-        responsive : true
+        responsive : true,
+        scaleFontSize: 24
     });
 
     var s = io.connect('http://localhost:2000'); 
