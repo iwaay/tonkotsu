@@ -39,6 +39,7 @@ function test() {
 //ローカルストレージをからっぽくするの。
 function resetLocalStorage()
 {
+    console.log("clear LocalStorage");
     localStorage.clear();//バルス
 }
 
