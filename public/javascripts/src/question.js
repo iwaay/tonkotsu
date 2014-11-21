@@ -41,7 +41,8 @@ function resetLocalStorage()
 {
     console.log("clear LocalStorage");
     localStorage.clear();//バルス
-    $question_text.empty(); 
+    $question_text.empty();
+    window.location.reload();
 }
 
 var isOpen = false;
