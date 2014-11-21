@@ -1,4 +1,4 @@
-/*
+
 var texts = [
     "私の名前は塚本だ。どわっはっはっはっはっはっはっはっはっは。",
     "私の名前は塚本だ。どわっはっはっはっはっはっはっはっはっは。",
@@ -16,9 +16,9 @@ texts.forEach(function(text,i) {
     addText(text, i);
 });
 
-*/
 
-var i = 0;
+
+var i = 1;
 
 var s = io.connect('http://localhost:2000');
 
@@ -34,14 +34,14 @@ s.on("text:send", function(data) {
 
 function addText(text, i) {
     console.log(i);
-    if ( i%4 == 0) {
+    if ( (i-1)%4 == 0) {
         $divRow       = $("<div>").addClass("row");
         $divPortfolio = $("<div>").addClass("col-md-3").addClass("portfolio-item");
         $divPortfolio.append($("<h4>").append(i)).append($("<p>").append(text));
         $divRow.append($divPortfolio);
         $("#portfolio").append($divRow);
     } else {
-         $divPortfolio = $("<div>").addClass("col-md-3").addClass("portfolio-item");
+        $divPortfolio = $("<div>").addClass("col-md-3").addClass("portfolio-item");
         $divPortfolio.append($("<h4>").append(i)).append($("<p>").append(text));
         $("#portfolio div.row:last").append($divPortfolio);
     }
