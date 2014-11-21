@@ -37,6 +37,17 @@ function test() {
 } 
 */
 
+//ブラウザが閉じられるときに呼び出される関数を登録
+window.onbeforeunload = function () {
+    browserClose();
+};
+
+//ブラウザが閉じられる時
+function browserClose()
+{
+    localStorage.clear();//バルス
+}
+
 var isOpen = false;
 $toggle = $("#menu-toggle");
 function toggle() {
