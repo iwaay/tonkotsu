@@ -22,7 +22,7 @@ function getQuestions(i){return localStorage.getItem("question"+i); }
 $question_text = $("#question_text");
 
 for(var j = 0; j < getQuestionLength(); j++){
-    $question_text.append($("<li>").append(getQuestions(i)));
+    $question_text.append($("<li>").append(getQuestions(j)));
 }
 
 s.on("question:send", function (data) {
