@@ -1,4 +1,4 @@
-
+/*
 var texts = [
     "私の名前は塚本だ。どわっはっはっはっはっはっはっはっはっは。",
     "私の名前は塚本だ。どわっはっはっはっはっはっはっはっはっは。",
@@ -15,7 +15,7 @@ var texts = [
 texts.forEach(function(text,i) {
     addText(text, i);
 });
-
+*/
 
 
 var i = 1;
