@@ -36,12 +36,12 @@ function addText(text, i) {
     console.log(i);
     if ( (i-1)%4 == 0) {
         $divRow       = $("<div>").addClass("row");
-        $divPortfolio = $("<div>").addClass("col-md-3").addClass("portfolio-item");
+        $divPortfolio = $("<div>").addClass("col-md-3").addClass("portfolio-item").css("border", "1px solid #000");
         $divPortfolio.append($("<h4>").append(i)).append($("<p>").append(text));
         $divRow.append($divPortfolio);
         $("#portfolio").append($divRow);
     } else {
-        $divPortfolio = $("<div>").addClass("col-md-3").addClass("portfolio-item");
+        $divPortfolio = $("<div>").addClass("col-md-3").addClass("portfolio-item").css("border", "1px solid #000");
         $divPortfolio.append($("<h4>").append(i)).append($("<p>").append(text));
         $("#portfolio div.row:last").append($divPortfolio);
     }
